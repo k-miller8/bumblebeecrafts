@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bumblebee Crafts | Screen-Free Oven-Bake Clay Kits</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --honey-yellow: #F8C325;
+            --honey-gold: #F5A623;
+            --honey-light: #FFF9E6;
+            --honey-hover: #E0A810;
+            --pastel-bg: #FFFDF7;
+            --pastel-card: #FFFFFF;
+            --pastel-border: #F3E5AB;
+            --charcoal: #2C2C2C;
+            --text-muted: #595959;
+            --sage-green: #7BA05B;
+            --terracotta: #E07A5F;
+            --shadow-soft: 0 8px 24px rgba(248, 195, 37, 0.2);
+            --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --radius-pill: 50px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--pastel-bg);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Honeycomb SVG Patterns */
+        .honeycomb-pattern {
+            background-color: var(--honey-light);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="56" height="98" viewBox="0 0 56 98"><path d="M28 0l28 16.166v32.333L28 64.665 0 48.499V16.166L28 0zm0 97.998l28-16.166V49.499L28 33.333 0 49.499v32.333l28 16.166z" fill="%23f8c325" fill-opacity="0.12" stroke="%23f5a623" stroke-opacity="0.25" stroke-width="1.5"/></svg>');
+        }
+
+        .honeycomb-subtle {
+            background-color: var(--pastel-bg);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="56" height="98" viewBox="0 0 56 98"><path d="M28 0l28 16.166v32.333L28 64.665 0 48.499V16.166L28 0zm0 97.998l28-16.166V49.499L28 33.333 0 49.499v32.333l28 16.166z" fill="%23f8c325" fill-opacity="0.05" stroke="%23f3e5ab" stroke-opacity="0.3" stroke-width="1"/></svg>');
+        }
+
+        header {
+            background-color: #FFFFFF;
+            border-bottom: 3px solid var(--honey-yellow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 6%;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-logo-image {
+            height: 48px;
+            width: 48px;
+            object-fit: contain;
+            border-radius: 50%;
+            background-color: var(--honey-light);
+            border: 2px solid var(--honey-yellow);
+            padding: 2px;
+        }
+
+        .logo-text {
+            font-size: 1.55rem;
+            font-weight: 800;
+            color: var(--charcoal);
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+            align-items: center;
+        }
+
+        nav a {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--charcoal);
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--honey-gold);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--honey-yellow);
+            color: var(--charcoal);
+            font-weight: 800;
+            padding: 12px 28px;
+            border-radius: var(--radius-pill);
+            border: 2px solid var(--honey-gold);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(248, 195, 37, 0.35);
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .btn:hover {
+            background-color: var(--honey-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(248, 195, 37, 0.45);
+        }
+
+        .btn-dark {
+            background-color: var(--charcoal);
+            color: #FFFFFF;
+            border-color: var(--charcoal);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-dark:hover {
+            background-color: #404040;
+            color: #FFFFFF;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--honey-yellow);
+            color: var(--charcoal);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--honey-yellow);
+        }
+
+        .hero {
+            padding: 80px 20px 90px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--honey-yellow);
+            position: relative;
+        }
+
+        .hero-card {
+            max-width: 780px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(8px);
+            border: 3px solid var(--honey-yellow);
+            border-radius: var(--radius-lg);
+            padding: 45px 30px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .badge-screenfree {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--honey-light);
+            color: var(--charcoal);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 18px;
+            border-radius: var(--radius-pill);
+            border: 1.5px solid var(--honey-yellow);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--charcoal);
+            margin-bottom: 15px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        section {
+            padding: 70px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-header h2 {
+            font-size: 2.3rem;
+            color: var(--charcoal);
+            font-weight: 800;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 4px;
+            background: var(--honey-yellow);
+            margin: 8px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .section-sub {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 680px;
+            margin: 10px auto 0 auto;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .card {
+            background: var(--pastel-card);
+            border: 2.5px solid var(--pastel-border);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--honey-yellow);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--honey-yellow);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .product-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: var(--honey-light);
+            color: var(--charcoal);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--honey-yellow);
+            margin-bottom: 12px;
+        }
+
+        .product-image-container {
+            width: 100%;
+            height: 220px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background-color: var(--honey-light);
+            margin-bottom: 18px;
+            border: 1px solid var(--pastel-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .product-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            font-size: 1.45rem;
+            margin-bottom: 8px;
+            color: var(--charcoal);
+            font-weight: 800;
+        }
+
+        .card .price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--charcoal);
+            margin-bottom: 12px;
+        }
+
+        .card-details {
+            list-style: none;
+            margin: 15px 0 20px 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .card-details li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .card-details li i {
+            color: var(--honey-gold);
+            margin-top: 3px;
+        }
+
+        .design-showcase {
+            background-color: #FFFFFF;
+            border: 2.5px solid var(--honey-yellow);
+            border-radius: var(--radius-lg);
+            padding: 35px 25px;
+            margin-top: 50px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .design-filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            background: var(--honey-light);
+            border: 2px solid var(--pastel-border);
+            padding: 10px 20px;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--charcoal);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--honey-yellow);
+            border-color: var(--honey-gold);
+            transform: scale(1.03);
+        }
+
+        .designs-display {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .design-card {
+            background: var(--pastel-bg);
+            border: 2px solid var(--pastel-border);
+            border-radius: var(--radius-md);
+            padding: 22px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .design-card:hover {
+            border-color: var(--honey-yellow);
+            background: #FFFFFF;
+            transform: translateY(-3px);
+        }
+
+        .design-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .design-card h4 {
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            margin-bottom: 6px;
+            font-weight: 800;
+        }
+
+        .design-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .feature-box {
+            background-color: var(--honey-light);
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--pastel-border);
+            padding: 40px 30px;
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            background: #FFFFFF;
+            padding: 24px;
+            border-radius: var(--radius-md);
+            border: 1.5px solid var(--pastel-border);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .feature-item i {
+            font-size: 1.8rem;
+            color: var(--honey-gold);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .feature-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--charcoal);
+        }
+
+        .feature-item p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        @media (min-width: 640px) {
+            .gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .gallery-card {
+            background: #FFFFFF;
+            border: 2px solid var(--pastel-border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            position: relative;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .gallery-overlay {
+            padding: 10px;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            background: #FFFFFF;
+            color: var(--charcoal);
+            border-top: 1px solid var(--pastel-border);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1.2fr 0.8fr;
+            }
+        }
+
+        .contact-form {
+            background: #FFFFFF;
+            padding: 35px;
+            border-radius: var(--radius-lg);
+            border: 2.5px solid var(--pastel-border);
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-form label {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            margin-bottom: -8px;
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--pastel-border);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s ease;
+            background-color: var(--pastel-bg);
+        }
+
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            border-color: var(--honey-yellow);
+            background-color: #FFFFFF;
+        }
+
+        .social-box {
+            background-color: var(--honey-light);
+            border: 2.5px solid var(--honey-yellow);
+            border-radius: var(--radius-lg);
+            padding: 35px 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .instagram-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #FFFFFF;
+            border: 2px solid var(--pastel-border);
+            padding: 12px 20px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-top: 15px;
+            transition: all 0.2s ease;
+        }
+
+        .instagram-badge:hover {
+            border-color: #E1306C;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: var(--charcoal);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 80px;
+            border-top: 5px solid var(--honey-yellow);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: #FFFFFF;
+            border-radius: var(--radius-lg);
+            padding: 35px;
+            max-width: 480px;
+            width: 100%;
+            position: relative;
+            box-shadow: var(--shadow-soft);
+            border: 3.5px solid var(--honey-yellow);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: var(--charcoal);
+        }
+
+        .theme-card-img { 
+            width: 100%; 
+            height: 160px; 
+            object-fit: cover; 
+            border-radius: var(--radius-md); 
+            margin-bottom: 12px; 
+            border: 1.5px solid var(--pastel-border);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #FFFFFF;
+                padding: 20px;
+                border-bottom: 3px solid var(--honey-yellow);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .hero-card {
+                padding: 25px 18px;
+            }
+        }
+    </style>
+</head>
+<body class="honeycomb-subtle">
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/bumblebeeCraftsLogo.png" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/100x100/F8C325/2C2C2C?text=🐝';" 
+                     alt="Bumblebee Crafts Logo" 
+                     class="header-logo-image">
+                <span class="logo-text">Bumblebee Crafts</span>
+            </a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <nav>
+            <ul id="navMenu">
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="#kits">Craft Kits</a></li>
+                <li><a href="#themes">Theme Collections</a></li>
+                <li><a href="#screen-free">Screen-Free</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header> 
+
+    <!-- Hero Section -->
+    <section id="home" class="hero honeycomb-pattern">
+        <div class="hero-card">
+            <div class="badge-screenfree">
+                <i class="fa-solid fa-leaf" style="color: var(--sage-green);"></i> 100% Screen-Free &bull; Oven-Bake Clay
+            </div>
+            <h1>Welcome to the Hive!</h1>
+            <p>Your one-stop shop for beginner polymer clay craft kits. Unplug your mind, put away your phone, and enjoy hands-on crafting at home.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="#kits" class="btn btn-dark">Shop Craft Kits ($20–$25)</a>
+                <a href="https://ig.me/m/bumblebeecrafts4" target="_blank" rel="noopener" class="btn btn-outline">
+                    <i class="fa-brands fa-instagram"></i> Message Us on Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="about">
+        <div class="section-header">
+            <h2>Our Story</h2>
+            <p class="section-sub">A tactile, screen-free escape designed to ease digital fatigue and nurture mental wellness.</p>
+        </div>
+
+        <div style="max-width: 850px; margin: 0 auto; line-height: 1.8; font-size: 1.05rem;">
+            <p style="margin-bottom: 20px;">
+                It all started with a shared realization: we were constantly exhausted. Between endless work notifications, social media scrolling, and staring at screens for hours on end, digital burnout and screen fatigue had become a part of daily life. We wanted a genuine way to unplug, clear our minds, and create something tangible with our hands without adding more stress or complexity.
+            </p>
+            
+            <p style="margin-bottom: 20px;">
+                When a friend brought up the therapeutic joy of polymer clay, we immediately fell in love with the vision. But we also knew how overwhelming it can be to start a new hobby—buying endless supplies, spending hours watching online tutorials on yet another screen, and ending up with leftover clutter. <strong>Bumblebee Crafts</strong> was built to solve that exact problem.
+            </p>
+
+            <p style="margin-bottom: 20px;">
+                We designed our craft boxes as a tool for mental wellness and gentle self-care. Each kit provides the exact portion of high-quality, pre-colored oven-bake clay, essential tools, and a clear, physical printed paper instruction guide. No video playback, no notifications, and no digital glare—just a peaceful, tactile space to relax your mind.
+            </p>
+
+            <p>
+                Whether you're shaping a simple trinket dish after a long work day or making matching clay earrings on a quiet weekend, our beginner kits are here to help you slow down, practice mindfulness, and give your eyes and mind a well-deserved break.
+            </p>
+        </div>
+    </section>
+
+    <!-- Craft Kits Section -->
+    <section id="kits">
+        <div class="section-header">
+            <h2>Our Clay Craft Kits</h2>
+            <p class="section-sub">Choose your kit! Both options come with pre-colored oven-bake clay, essential shaping tools, gloss glaze, and full-color printed paper instructions.</p>
+        </div>
+        
+        <div class="grid-container">
+            
+            <!-- KIT 1: Jewelry Tray + Earrings -->
+            <div class="card">
+                <div>
+                    <div class="product-badge"><i class="fa-solid fa-gem"></i> Earring & Tray Set</div>
+                    <div class="product-image-container">
+                        <img src="images/jewelry-tray-earrings.jpg" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFF9E6/2C2C2C?text=✨+Jewelry+Tray+%26+Earrings';" 
+                             alt="Jewelry Tray and Clay Earrings Kit">
+                    </div>
+                    
+                    <h3>Jewelry Tray + Clay Earrings Kit</h3>
+                    <div class="price">$20.00</div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        Sculpt a tray for your rings and fashion 2 to 3 pairs of custom polymer clay statement earrings!
+                    </p>
+
+                    <ul class="card-details">
+                        <li><i class="fa-solid fa-check"></i> Pre-colored Oven-Bake Clay</li>
+                        <li><i class="fa-solid fa-check"></i> Earring Cutters, Jump Rings & Stainless Steel Hooks</li>
+                        <li><i class="fa-solid fa-check"></i> Clay Rolling Pin & Shaping Tool</li>
+                        <li><i class="fa-solid fa-check"></i> Clear Gloss Finish Glaze</li>
+                        <li><i class="fa-solid fa-check"></i> Printed Paper Instruction Booklet</li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="https://ig.me/m/bumblebeecrafts4?text=Hi%21%20I%27d%20like%20to%20order%20the%20Jewelry%20Tray%20%2B%20Clay%20Earrings%20Kit%20%28%2420%29." 
+                       target="_blank" rel="noopener" class="btn" style="width: 100%;">
+                        <i class="fa-brands fa-instagram"></i> Order via Instagram DM ($20)
+                    </a>
+                </div>
+            </div>
+
+            <!-- KIT 2: Duo Trinket Dishes -->
+            <div class="card">
+                <div>
+                    <div class="product-badge"><i class="fa-solid fa-shapes"></i> Set of 2 Dishes</div>
+                    <div class="product-image-container">
+                        <img src="images/duo-trinket-dishes.jpg" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFF9E6/2C2C2C?text=🍓+Duo+Trinket+Dishes';" 
+                             alt="Duo Clay Trinket Dishes Kit">
+                    </div>
+                    
+                    <h3>Duo Trinket Dishes Kit</h3>
+                    <div class="price">$25.00</div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        Double the clay! Create two custom trinket dishes using our step-by-step printed guides from any theme collection.
+                    </p>
+
+                    <ul class="card-details">
+                        <li><i class="fa-solid fa-check"></i> Double portion of Oven-Bake Polymer Clay</li>
+                        <li><i class="fa-solid fa-check"></i> Custom Tracing Templates & Cutters</li>
+                        <li><i class="fa-solid fa-check"></i> Sculpting Tools</li>
+                        <li><i class="fa-solid fa-check"></i> Gloss Finishing Sealant</li>
+                        <li><i class="fa-solid fa-check"></i> Printed Paper Step-by-Step Guide</li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="https://ig.me/m/bumblebeecrafts4?text=Hi%21%20I%27d%20like%20to%20order%20the%20Duo%20Trinket%20Dishes%20Kit%20%28%2425%29." 
+                       target="_blank" rel="noopener" class="btn" style="width: 100%;">
+                        <i class="fa-brands fa-instagram"></i> Order via Instagram DM ($25)
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- THEMES & DESIGN SHOWCASE -->
+        <div id="themes" class="design-showcase">
+            <h3 style="text-align: center; font-size: 1.5rem; margin-bottom: 8px;">Explore Our Theme Collections</h3>
+            <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px;">
+                Filter by theme to see the trinket dishes & earring guides included in your paper booklet:
+            </p>
+
+            <div class="design-filter-buttons">
+                <button class="filter-btn active" onclick="filterDesigns('all')">All Themes</button>
+                <button class="filter-btn" onclick="filterDesigns('fruit')">Fruit & Botanical</button>
+                <button class="filter-btn" onclick="filterDesigns('spooky')">Spooky & Seasonal</button>
+            </div>
+
+            <div class="designs-display" id="designsContainer">
+                
+                <div class="designs-display" id="designsContainer">
+                <div class="design-card" data-category="fruit">
+                    <img src="images/fruit-theme.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/FFF9E6/2C2C2C?text=🍓+Fruit+Theme';" alt="Fruit Theme" class="theme-card-img">
+                    <h4>Strawberry Dish</h4>
+                    <p>Scalloped rim with seed texture accents.</p>
+                </div>
+                <div class="design-card" data-category="spooky">
+                    <img src="images/autumn-theme.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/FFF9E6/2C2C2C?text=🎃+Autumn+Theme';" alt="Autumn Theme" class="theme-card-img">
+                    <h4>Pumpkin Dish</h4>
+                    <p>Ridged edges and stem detail handle.</p>
+                </div>
+                <div class="design-card" data-category="spooky">
+                    <img src="images/spooky-theme.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/FFF9E6/2C2C2C?text=👻+Spooky+Theme';" alt="Spooky Theme" class="theme-card-img">
+                    <h4>Ghost Dish</h4>
+                    <p>Wavy floating edges with cute eye details.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screen-Free Feature Section -->
+    <section id="screen-free" style="padding-top: 10px;">
+        <div class="feature-box honeycomb-pattern">
+            <div style="text-align: center;">
+                <span class="badge-screenfree" style="background: #FFFFFF;">
+                    <i class="fa-solid fa-book-open"></i> Screen-Free Mental Wellness
+                </span>
+                <h2 style="font-size: 2rem; margin: 10px 0;">Why Paper Instructions Matter</h2>
+                <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto;">
+                    We intentionally avoid video tutorials to provide a peaceful, screen-free crafting experience.
+                </p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>Easy Oven-Bake Clay</h4>
+                    <p>No kiln required! Simply bake your finished pieces in your standard home oven.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4>Full-Color Printed Guide</h4>
+                    <p>Follow along with clear illustrations printed right on physical paper inside your box. Zero screen glare.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4>Tactile Stress Relief</h4>
+                    <p>Kneading and shaping polymer clay reduces tension, improves focus, and offers a refreshing break for your mental health.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+   <!-- Contact & Instagram Section -->
+    <section id="contact">
+        <div class="section-header">
+            <h2>Reach Out & Connect</h2>
+            <p class="section-sub">Have a question or want to order a kit? Send us a direct message on Instagram!</p>
+        </div>
+
+        <div style="max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;">
+            
+            <!-- Instagram Main Order Box -->
+            <div class="instagram-card">
+                <i class="fa-brands fa-instagram" style="font-size: 3.8rem; color: #E1306C;"></i>
+                <h3 style="font-size: 1.6rem; color: var(--charcoal);">Message Us @bumblebeecrafts4</h3>
+                <p style="color: var(--text-muted); font-size: 0.98rem; max-width: 480px; line-height: 1.6;">
+                    The fastest way to place an order, pick custom theme colors, or ask a question is directly through Instagram DMs!
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 360px; margin-top: 8px;">
+                    <a href="https://ig.me/m/bumblebeecrafts4?text=Hi%21%20I%27d%20like%20to%20order%20the%20Jewelry%20Tray%20%2B%20Clay%20Earrings%20Kit%20%28%2420%29." 
+                       target="_blank" rel="noopener" class="btn btn-dark">
+                        <i class="fa-brands fa-instagram"></i> Order $20 Kit via DM
+                    </a>
+                    <a href="https://ig.me/m/bumblebeecrafts4?text=Hi%21%20I%27d%20like%20to%20order%20the%20Duo%20Trinket%20Dishes%20Kit%20%28%2425%29." 
+                       target="_blank" rel="noopener" class="btn btn-dark">
+                        <i class="fa-brands fa-instagram"></i> Order $25 Kit via DM
+                    </a>
+                    <a href="https://ig.me/m/bumblebeecrafts4?text=Hi%20Bumblebee%20Crafts%21%20I%20have%20a%20question%20about%20your%20clay%20kits." 
+                       target="_blank" rel="noopener" class="btn btn-outline">
+                        Ask a Question
+                    </a>
+                </div>
+            </div>
+
+            <!-- Response Time Note -->
+            <div style="background-color: var(--honey-light); border: 2px solid var(--honey-yellow); border-radius: var(--radius-md); padding: 18px 22px; text-align: center;">
+                <p style="font-size: 0.9rem; color: var(--charcoal); font-weight: 700;">
+                    <i class="fa-solid fa-clock" style="color: var(--honey-gold); margin-right: 6px;"></i> We reply to Instagram messages and order DMs within 24–48 hours!
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Bumblebee Crafts. Find your creative Buzz.</p>
+    </footer>
+
+    <!-- Interactive Navigation and Theme Filter Script -->
+    <script>
+        // Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // Theme Filter Functionality
+        function filterDesigns(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            const cards = document.querySelectorAll('.design-card');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
