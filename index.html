@@ -642,15 +642,17 @@
             color: var(--charcoal);
         }
 
-        .theme-card-img { 
-            width: 100%; 
-            height: 160px; 
-            object-fit: cover; 
-            border-radius: var(--radius-md); 
-            margin-bottom: 12px; 
+        .theme-card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            background-color: #FAFAFA;
+            border-radius: var(--radius-md);
+            margin-bottom: 12px;
             border: 1.5px solid var(--pastel-border);
+            padding: 8px;
         }
-
+        
         @media (max-width: 768px) {
             nav ul {
                 display: none;
